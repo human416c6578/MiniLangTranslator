@@ -1,0 +1,21 @@
+# Created by https://www.toptal.com/developers/gitignore/api/pawn
+# Edit at https://www.toptal.com/developers/gitignore?templates=pawn
+
+### PAWN ###
+# Compiled Bytecode, precompiled output and assembly
+*.o
+
+# Vendor directory for dependencies
+dependencies/
+build/
+
+# Dependency versions lockfile
+pawn.lock
+
+# IDE setting files
+settings.json
+tasks.json
+.vscode/*.json
+.vs/*
+
+# End of https://www.toptal.com/developers/gitignore/api/pawn
