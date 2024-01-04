@@ -178,7 +178,7 @@ Feel free to contribute to this project by opening issues or pull requests.
 
 ### Expressions
 
-- Arithmetic expressions can include variables, array elements, and numerical values. Supported operators are `+`, `-`, `*`, `/`.
+- Arithmetic expressions can include variables, array elements, and numerical values. Supported operators are `+`, `-`, `*`, `/`, `|`, `&`.
   
   Example:
   ```plaintext
@@ -188,7 +188,7 @@ Feel free to contribute to this project by opening issues or pull requests.
 ### Relational and Logical Operators
 
 - Relational operators (`>`, `<`, `==`) can be used in conditions for decision structures and loops.
-- Logical operators (`|`, `&`) are supported for combining conditions.
+- Logical operators (`||`, `&&`) are supported for combining conditions.
 
   Example:
   ```plaintext
@@ -203,7 +203,7 @@ Feel free to contribute to this project by opening issues or pull requests.
 
   Example:
   ```plaintext
-  if (x > 5) | (y[2] < 10)
+  if (x > 5) || (y[2] < 10)
       # do something
   end
   ```
