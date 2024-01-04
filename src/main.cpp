@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstring>
 #include <fstream>
 #include <Translator.h>
 
@@ -30,13 +31,38 @@ void displayTokens(std::vector<Token> &tokens)
 int main(int argc, char *argv[])
 {
     
-    if (argc != 2)
+    if (argc < 2)
     {
-        std::cerr << "Usage: " << argv[0] << " <input_file>" << std::endl;
+        std::cerr << "Flags: --tokens --ast" << std::endl;
+        std::cerr << "Usage: " << argv[0] << " <input_file> <flags>" << std::endl;
         return 1;
     }
 
     const char *inputFileName = argv[1];
+    bool bPrintTokens = false;
+    bool bPrintAST = false;
+
+    // Handle flags
+    for (int i = 2; i < argc; ++i)
+    {
+        const char *flag = argv[i];
+
+        if (strcmp(flag, "--tokens") == 0)
+        {
+            bPrintTokens = true;
+        }
+        else if (strcmp(flag, "--ast") == 0)
+        {
+            bPrintAST = true;
+        }
+        else
+        {
+            // Handle unrecognized flags
+            std::cerr << "Unrecognized flag: " << flag << std::endl;
+            return 1;
+        }
+    }
+
 
     // Read script from the specified text file
     std::ifstream file(inputFileName);
@@ -51,12 +77,16 @@ int main(int argc, char *argv[])
     file.close();
     Lexer lexer(script);
     std::vector<Token> tokens = lexer.parse();
-    //displayTokens(tokens);
+
+    if(bPrintTokens)
+        displayTokens(tokens);
 
     AST ast(tokens);
     ASTNode program({ASTNodeType::PROGRAM});
     ast.parse(program);
-    //displayAST(program);
+
+    if(bPrintAST)
+        displayAST(program);
 
     std::string c = Translator::ast_to_c(program);
 
