@@ -37,8 +37,7 @@ int main(int argc, char *argv[])
     }
 
     const char *inputFileName = argv[1];
-    
-    
+
     // Read script from the specified text file
     std::ifstream file(inputFileName);
     if (!file.is_open())

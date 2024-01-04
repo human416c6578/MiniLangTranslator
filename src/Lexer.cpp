@@ -181,10 +181,16 @@ Token Lexer::parseNumber(int line)
 Token Lexer::parseKeywordOrIdentifier(int line)
 {
     std::string value;
-    while (isalnum(script_[pos_]))
+    while (isalnum(script_[pos_]) || script_[pos_] == '_' || script_[pos_] == '-')
     {
         value += script_[pos_++];
     }
+
+    if(value.back() == '-') {
+        std::cerr<<"["<<line<<"]"<<"Unexpected character ( - )";
+        return {};
+    }
+        
 
     // Check if the identifier is a keyword
     if (value == "var")
