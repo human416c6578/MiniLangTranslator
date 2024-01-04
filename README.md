@@ -11,8 +11,8 @@ To build the translator, follow these steps:
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/human416c6578/Translator.git
-cd Translator
+git clone https://github.com/human416c6578/MiniLangTranslator.git
+cd MiniLangTranslator
 ```
 
 2. Create a build directory and navigate into it:
