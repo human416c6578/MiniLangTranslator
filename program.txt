@@ -1,16 +1,30 @@
-# Example program
-var x
-var y[5]
-x = 10
-y[2] = x + 5
-if x > 5
-    print "x is greater than 5" print "\n"
-    
-else
-    print "x is not greater than 5" print "\n"
+var v[10] # Numarul elementelor poate fi doar o valoare numerica (intreaga, pozitiva).
+var i
+# Citire vector:
+i=0
+while i < 10
+print "v[" print i print "]=?"
+read v[i]
+i = i+1
 end
-while y[2] > 0
-    print y[2]
-    print "\n"
-    y[2] = y[2] - 1
+# Sortare vector (prin Bubble Sort):
+var gata
+gata = 0 - 1 # Caci nu-mi permite limbajul sa scriu gata = -1
+while gata < 0
+gata = 1
+i=0
+while i < 9
+if v[i] > v[i+1]
+var x x = v[i] # Da, pot sa scriu mai multe instructiuni pe linie.
+v[i] = v[i+1] v[i+1] = x # Ca si aici – doua instructiuni pe linie.
+gata = 0 - 1
 end
+i = i+1
+end
+end
+# Afisare vector sortat:
+print "v sortat:\n"
+i=0
+while i < 9 print v[i] print ", " i = i+1 end # Un while intr-o singura linie.
+print v[9]
+print "."
